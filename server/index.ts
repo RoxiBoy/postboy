@@ -1,15 +1,15 @@
 import express from 'express'
 import path from 'path'
 import http from 'http'
-import cors from 'cors'
+const cors = require('cors')
 const app = express()
 // Basic usage (allows all origins)
 app.use(cors());
 
 // Example with more specific settings
 app.use(cors({
-  origin: 'https://example.com', // Restrict to specific origin
-  methods: 'GET,POST', // Allow only certain methods
+  origin: 'http://localhost:5173', // Restrict to specific origin
+  methods: '*', // Allow only certain methods
   allowedHeaders: 'Content-Type,Authorization', // Allow specific headers
 }));
 app.use(express.static(path.join(__dirname,'..', 'client')))

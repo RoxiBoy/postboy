@@ -1,6 +1,11 @@
-import { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 
-const Hero = ({onResponse}) => {
+interface HeroProps {
+  onResponse: React.Dispatch<React.SetStateAction<string>>;
+}
+
+
+const Hero: React.FC<HeroProps> = ({onResponse}) => {
 
   const [selectedOption, setSelectedOption] = useState<string>('GET')
   const [url, setUrl] = useState<string>('')
@@ -13,13 +18,13 @@ const Hero = ({onResponse}) => {
   }
 
   const handleSend = async () => {
-    console.log(url)
     const response = await fetch(url, {
       method: 'GET',
-      mode: 'no-cors'
+      mode: 'cors'
     })
-    const resposeData = await response.json() 
-    console.log(resposeData)
+    const responseData = await response.json() 
+    const responseString = JSON.stringify(responseData)
+    onResponse(responseString)
   }
 
   return (
