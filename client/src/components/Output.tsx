@@ -11,9 +11,7 @@ const Output: React.FC<responseData> = ({response}) => {
 
   return (
     <div>
-      {
-        response
-      } 
+      <pre>{response}</pre>
     </div>
   )
 }

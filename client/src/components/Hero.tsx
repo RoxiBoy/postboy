@@ -4,7 +4,6 @@ interface HeroProps {
   onResponse: React.Dispatch<React.SetStateAction<string>>;
 }
 
-
 const Hero: React.FC<HeroProps> = ({onResponse}) => {
 
   const [selectedOption, setSelectedOption] = useState<string>('GET')
@@ -23,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({onResponse}) => {
       mode: 'cors'
     })
     const responseData = await response.json() 
-    const responseString = JSON.stringify(responseData)
+    const responseString = JSON.stringify(responseData, null, 2)
     onResponse(responseString)
   }
 
@@ -40,8 +39,11 @@ const Hero: React.FC<HeroProps> = ({onResponse}) => {
           <option value="POST">POST</option>
           <option value="DELETE">DELETE</option>
         </select>{" "}
-        <input type="text" placeholder="URL..." value={url} onChange={handleUrlChange}/>
+        <input type="text" placeholder="URL..." value={url} onChange={handleUrlChange} className="p-4"/>
         <button onClick={handleSend}>Send</button>
+      </div>
+      <div>
+      
       </div>
     </div>
   );

@@ -23,6 +23,7 @@ const Requests = () => {
 
   return (
     <div className="w-72 bg-lime-50 p-0  h-[90vh] flex flex-col">
+      <p className="bg-red-500">Requests not working currently</p>
       <div className="flex flex-row justify-around items-center py-2 bg-lime-200">
         <p className="font-light text-sm">Requests</p>
      </div>
